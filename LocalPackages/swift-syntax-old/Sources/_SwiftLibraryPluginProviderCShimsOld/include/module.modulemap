@@ -1,0 +1,4 @@
+module _SwiftLibraryPluginProviderCShimsOld {
+  header "LoadLibrary.h"
+  export *
+}

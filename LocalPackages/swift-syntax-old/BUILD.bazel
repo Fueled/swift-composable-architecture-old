@@ -1,0 +1,354 @@
+load("@build_bazel_rules_apple//apple/testing/default_runner:ios_xctestrun_runner.bzl", "ios_xctestrun_runner")
+load("//utils/bazel:swift_syntax_library.bzl", "swift_syntax_library", "swift_syntax_test")
+
+package(default_visibility = ["//visibility:public"])
+
+swift_syntax_library(
+    name = "SwiftBasicFormatOld",
+    deps = [
+        ":SwiftSyntaxOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftBasicFormatTest",
+    deps = [
+        ":SwiftBasicFormatOld",
+        ":SwiftSyntaxBuilderOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftCompilerPluginOld",
+    deps = [
+        ":SwiftCompilerPluginMessageHandlingOld",
+        ":SwiftSyntaxMacrosOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftCompilerPluginMessageHandlingOld",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftOperatorsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxMacroExpansionOld",
+        ":SwiftSyntaxMacrosOld",
+        ":_SwiftSyntaxCShimsOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftCompilerPluginTest",
+    deps = [
+        ":SwiftCompilerPluginOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftDiagnosticsOld",
+    deps = [
+        ":SwiftSyntaxOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftDiagnosticsTest",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftParserOld",
+        ":SwiftParserDiagnosticsOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftIDEUtilsOld",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftIDEUtilsTest",
+    deps = [
+        ":SwiftIDEUtilsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftLibraryPluginProviderOld",
+    deps = [
+        ":SwiftCompilerPluginMessageHandlingOld",
+        ":SwiftSyntaxMacrosOld",
+        ":_SwiftLibraryPluginProviderCShimsOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftOperatorsOld",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftOperatorsTest",
+    deps = [
+        ":SwiftOperatorsOld",
+        ":SwiftParserOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftParserOld",
+    deps = [
+        ":SwiftSyntaxOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftParserDiagnosticsOld",
+    deps = [
+        ":SwiftBasicFormatOld",
+        ":SwiftDiagnosticsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftParserDiagnosticsTest",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftParserDiagnosticsOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftParserTest",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftIDEUtilsOld",
+        ":SwiftOperatorsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxBuilderOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftRefactorOld",
+    deps = [
+        ":SwiftBasicFormatOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxBuilderOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftRefactorTest",
+    deps = [
+        ":SwiftRefactorOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntaxOld",
+    deps = [
+        ":SwiftSyntax509Old",
+        ":SwiftSyntax510Old",
+        ":SwiftSyntax600Old",
+        ":_SwiftSyntaxCShimsOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntax509Old",
+    srcs = glob(["Sources/VersionMarkerModules/SwiftSyntax509Old/**/*.swift"]),
+    deps = [
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntax510Old",
+    srcs = glob(["Sources/VersionMarkerModules/SwiftSyntax510Old/**/*.swift"]),
+    deps = [
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntax600Old",
+    srcs = glob(["Sources/VersionMarkerModules/SwiftSyntax600Old/**/*.swift"]),
+    deps = [
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntaxBuilderOld",
+    deps = [
+        ":SwiftBasicFormatOld",
+        ":SwiftDiagnosticsOld",
+        ":SwiftParserOld",
+        ":SwiftParserDiagnosticsOld",
+        ":SwiftSyntaxOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftSyntaxBuilderTest",
+    deps = [
+        ":SwiftSyntaxBuilderOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntaxMacroExpansionOld",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftOperatorsOld",
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxBuilderOld",
+        ":SwiftSyntaxMacrosOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftSyntaxMacroExpansionTest",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftOperatorsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxBuilderOld",
+        ":SwiftSyntaxMacroExpansionOld",
+        ":SwiftSyntaxMacrosOld",
+        ":SwiftSyntaxMacrosTestSupportOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntaxMacrosOld",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxBuilderOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntaxMacrosGenericTestSupportOld",
+    testonly = True,
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftIDEUtilsOld",
+        ":SwiftParserOld",
+        ":SwiftSyntaxMacroExpansionOld",
+        ":SwiftSyntaxMacrosOld",
+        ":_SwiftSyntaxGenericTestSupportOld",
+    ],
+)
+
+swift_syntax_library(
+    name = "SwiftSyntaxMacrosTestSupportOld",
+    testonly = True,
+    deps = [
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxMacroExpansionOld",
+        ":SwiftSyntaxMacrosOld",
+        ":SwiftSyntaxMacrosGenericTestSupportOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftSyntaxMacrosTestSupportTests",
+    deps = [
+        ":SwiftDiagnosticsOld",
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxMacrosOld",
+        ":SwiftSyntaxMacrosTestSupportOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftSyntaxTest",
+    deps = [
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxBuilderOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+swift_syntax_test(
+    name = "SwiftSyntaxTestSupportTest",
+    deps = [
+        ":SwiftParserOld",
+        ":_SwiftSyntaxTestSupportOld",
+    ],
+)
+
+cc_library(
+    name = "_InstructionCounterOld",
+    srcs = glob(["Sources/_InstructionCounterOld/src/*.c"]),
+    hdrs = glob(["Sources/_InstructionCounterOld/include/*.h"]),
+    includes = ["Sources/_InstructionCounterOld/include"],
+    tags = ["swift_module=_InstructionCounterOld"],
+    visibility = ["//visibility:private"],
+)
+
+cc_library(
+    name = "_SwiftLibraryPluginProviderCShimsOld",
+    hdrs = glob(["Sources/_SwiftLibraryPluginProviderCShimsOld/include/*.h"]),
+    includes = ["Sources/_SwiftLibraryPluginProviderCShimsOld/include"],
+    tags = ["swift_module=_SwiftLibraryPluginProviderCShimsOld"],
+    visibility = ["//visibility:private"],
+)
+
+cc_library(
+    name = "_SwiftSyntaxCShimsOld",
+    hdrs = glob(["Sources/_SwiftSyntaxCShimsOld/include/*.h"]),
+    includes = ["Sources/_SwiftSyntaxCShimsOld/include"],
+    tags = ["swift_module=_SwiftSyntaxCShimsOld"],
+    visibility = ["//visibility:private"],
+)
+
+swift_syntax_library(
+    name = "_SwiftSyntaxGenericTestSupportOld",
+    testonly = True,
+    deps = [
+    ],
+)
+
+swift_syntax_library(
+    name = "_SwiftSyntaxTestSupportOld",
+    testonly = True,
+    deps = [
+        ":SwiftBasicFormatOld",
+        ":SwiftSyntaxOld",
+        ":SwiftSyntaxBuilderOld",
+        ":SwiftSyntaxMacroExpansionOld",
+        ":_SwiftSyntaxGenericTestSupportOld",
+    ],
+)
+
+ios_xctestrun_runner(
+    name = "ios_test_runner",
+    random = False,
+    reuse_simulator = True,
+    visibility = ["//visibility:private"],
+)
