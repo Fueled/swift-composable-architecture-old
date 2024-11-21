@@ -14,12 +14,12 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(name: "BenchmarkOld", path: "./LocalPackages/swift-benchmark-old"),
-    .package(path: "./LocalPackages/combine-schedulers-old"),
-    .package(path: "./LocalPackages/swift-case-paths-old"),
-    .package(path: "./LocalPackages/swift-custom-dump-old"),
-    .package(path: "./LocalPackages/swift-identified-collections-old"),
-    .package(path: "./LocalPackages/xctest-dynamic-overlay-old"),
+    .package(name: "BenchmarkOld", path: "./Sources/LocalPackages/swift-benchmark-old"),
+    .package(path: "./Sources/LocalPackages/combine-schedulers-old"),
+    .package(path: "./Sources/LocalPackages/swift-case-paths-old"),
+    .package(path: "./Sources/LocalPackages/swift-custom-dump-old"),
+    .package(path: "./Sources/LocalPackages/swift-identified-collections-old"),
+    .package(path: "./Sources/LocalPackages/xctest-dynamic-overlay-old"),
   ],
   targets: [
     .target(
@@ -51,6 +51,6 @@ let package = Package(
 #if swift(>=5.6)
   // Add the documentation compiler plugin if possible
   package.dependencies.append(
-    .package(path: "./LocalPackages/swift-docc-plugin-old")
+    .package(path: "./Sources/LocalPackages/swift-docc-plugin-old")
   )
 #endif
